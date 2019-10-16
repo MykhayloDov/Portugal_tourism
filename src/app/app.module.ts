@@ -4,7 +4,6 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HistoryComponent } from './history/history.component';
-import { GeorgraphyComponent } from './georgraphy/georgraphy.component';
 import { GastronomyComponent } from './gastronomy/gastronomy.component';
 import { ActualityComponent } from './actuality/actuality.component';
 import { TourismComponent } from './tourism/tourism.component';
@@ -17,7 +16,7 @@ import { GeographyComponent } from './geography/geography.component';
   declarations: [
     AppComponent,
     HistoryComponent,
-    GeorgraphyComponent,
+    GeographyComponent,
     GastronomyComponent,
     ActualityComponent,
     TourismComponent,

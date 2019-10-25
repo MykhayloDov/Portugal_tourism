@@ -1,0 +1,51 @@
+footer {
+  color: #fff;
+  background-attachment: fixed;
+  background-color:#222;
+  background-image: url(https://s7.postimg.org/uyf0oioaz/footer-bg.png);
+  background-size: cover;
+  background-position: bottom;
+  display: flex;
+  justify-content: space-between;
+}
+.about_us{
+  width: 100%;
+  margin-top: 5px;
+
+  font-size: 15px;
+}
+footer p {
+  color: #ccc;
+}
+.row{
+  margin-left: 100px;
+}
+footer a {
+  color: #ccc;
+}
+
+
+.f-address  {
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+}
+.f-address li i {
+  color: #2995de;
+  font-size: 20px;
+}
+#contact{
+  width: 100%;
+  height: auto;
+}
+.f-address li a {
+  color: #ccc;
+}
+/*=-Copyright-=*/
+.copyright {
+  background-color: #111;
+  padding: 10px 50px;
+  text-align: center;
+  font-size:13px;
+}
+

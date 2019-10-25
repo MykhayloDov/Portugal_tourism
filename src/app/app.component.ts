@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'SITE';
+  counterValue = 1;
+  private displayService: any;
+
+  showModal(): void {
+    this.displayService.setShowModal(true);
+  }
 }

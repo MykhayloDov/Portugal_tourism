@@ -21,7 +21,6 @@ export class ShopModuleComponent {
   private displayService: any;
   public shopForm: FormGroup;
   url: string;
-  counterValue = 0;
   @Output() counterChange = new EventEmitter();
   show = true;
   visibility = true;
@@ -37,14 +36,14 @@ export class ShopModuleComponent {
       notes: ['', [Validators.required]]
     });
   }
-  @Input()
-  get counter() {
-    return this.counterValue;
-  }
-  set counter(val) {
-    this.counterValue = val;
-    this.counterChange.emit(this.counterValue);
-  }
+  @Input() private counterValue: number;
+  // get counter() {
+  //   return this.counterValue;
+  // }
+  // set counter(val) {
+  //   this.counterValue = val;
+  //   this.counterChange.emit(this.counterValue);
+  // }
 
   // decrement() {
   //   this.counter--;

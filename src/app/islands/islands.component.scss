@@ -1,12 +1,11 @@
-img{
-  width: 900px;
-  height: 450px;
-  margin-left: 50px;
-}
-h2,
-h3{
-  text-align: center;
-}
 .my-container{
-  background-color: #2995de;
+  background-image: url("src/assets/img/2.png");
+  background-size: cover;
 }
+img{
+  width: 70%;
+  height: 40%;
+  margin-left: 20%;
+  border-radius: 10px;
+}
+

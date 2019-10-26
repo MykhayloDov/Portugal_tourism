@@ -6,28 +6,27 @@ footer {
   background-size: cover;
   background-position: bottom;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 .about_us{
   width: 100%;
   margin-top: 5px;
-
   font-size: 15px;
 }
 footer p {
   color: #ccc;
 }
-.row{
-  margin-left: 100px;
+#about{
+  width: 800px;
+  text-align: center;
 }
 footer a {
   color: #ccc;
 }
 
-
 .f-address  {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   list-style: none;
   padding: 0;
 }
@@ -42,6 +41,9 @@ footer a {
 }
 .f-address li a {
   color: #ccc;
+}
+.row{
+  display: inline-flex;
 }
 /*=-Copyright-=*/
 .copyright {

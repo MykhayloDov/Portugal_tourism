@@ -1,5 +1,5 @@
 <div class="my-container">
-
+  <br><br>
 <div class="main">
 <h3>Паштелки вже у Львові</h3>
 <img src="assets/img/paste_.jpg" alt="" class="logo">
@@ -9,7 +9,7 @@
   <div class="form-group">
     <label>Вкажіть кількість наборів:</label><br>
 <!--    <button type="button" (click)="decrement()" class="countButtons" style="color: orangered"><i class="fas fa-minus"></i></button>-->
-    <input formControlName="counterValue"  value='{{counter}}'>
+    <input class="form-control" style="width: 10%" formControlName="counterValue" [(ngModel)]="counterValue" >
 <!--    <button type="button" (click)="increment()" class="countButtons" style="color: dodgerblue"><i class="fas fa-plus"></i></button>-->
   </div>
   <div class="form-group">
@@ -38,8 +38,8 @@
 
 
 <div class="confirmModal" [ngClass]="{invisible: visibility}">
-  <h3>Ви купили: {{counter}}комплектів</h3>
-  <button class="modalBtn" style="background-color: darkgreen" (click)="closeModal(); send()">Yes</button>
-  <button class="modalBtn" style="background-color: firebrick" (click)="closeModal()">No</button>
+  <h3>Ви замовляєте: {{counterValue}} комплекти</h3>
+  <button class="modalBtn" style="background-color: darkgreen" (click)="closeModal(); send()">ЗАМОВИТИ</button>
+  <button class="modalBtn" style="background-color: firebrick" (click)="closeModal()">ВІДМІНИТИ</button>
 </div>
 </div>

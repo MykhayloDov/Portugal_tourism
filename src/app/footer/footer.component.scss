@@ -2,7 +2,7 @@ footer {
   color: #fff;
   background-attachment: fixed;
   background-color:#222;
-  background-image: url(https://s7.postimg.org/uyf0oioaz/footer-bg.png);
+  //background-image: url(https://s7.postimg.org/uyf0oioaz/footer-bg.png);
   background-size: cover;
   background-position: bottom;
   display: flex;
@@ -29,10 +29,12 @@ footer a {
   display: flex;
   justify-content: space-between;
   list-style: none;
+  padding: 0;
 }
 .f-address li i {
   color: #2995de;
   font-size: 20px;
+  padding: 0;
 }
 #contact{
   width: 100%;

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 
@@ -7,19 +7,29 @@ import { AuthService } from '../auth.service';
   templateUrl: './admin.component.html',
   styleUrls: ['./admin.component.scss']
 })
-export class AdminComponent implements OnInit {
-
-  constructor(private authService: AuthService, private router: Router) { }
-
-  ngOnInit() {
+export class AdminComponent implements OnDestroy {
+public header = 'UserList example';
+public arr: string[] = [];
+  constructor(private authService: AuthService, private router: Router) {
+    const res = this.httpGet('https://jsonplaceholder.typicode.com/users');
+    this.arr = JSON.parse(res);
   }
-getUsers() {
-    // JSON.stringify();
-}
+
+  httpGet(url: string) {
+    const xmlHttp = new XMLHttpRequest();
+    xmlHttp.open('GET', url, false);
+    xmlHttp.send(null);
+    return xmlHttp.responseText;
+  }
 
   logout() {
     this.authService.logout();
     this.router.navigateByUrl('/home');
   }
+  OnDestroy() {
+    this.logout();
+    }
 
+  ngOnDestroy(): void {
+  }
 }

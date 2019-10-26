@@ -1,6 +1,20 @@
 button {
+  margin: 5%;
   background: rgb(1, 29, 51);
   border-color: transparent;
   color: #fff;
   cursor: pointer;
+}
+.usersList {
+  display: flex;
+  flex-wrap: wrap;
+}
+.box{
+  width: auto;
+  height: auto;
+  margin: 2%;
+  padding: 2%;
+  border: 1px solid black;
+  border-radius: 5px;
+  font-style: italic;
 }

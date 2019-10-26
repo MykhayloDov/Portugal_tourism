@@ -1,4 +1,15 @@
 import {Component, Input, Output, EventEmitter} from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {HttpClient} from '@angular/common/http';
+import {Observable} from 'rxjs';
+
+interface  PurchaseInfo {
+  counterValue: number;
+  phone: string;
+  name: string;
+  date: any;
+  notes: string;
+}
 declare var $: any;
 
 @Component({
@@ -8,36 +19,68 @@ declare var $: any;
 })
 export class ShopModuleComponent {
   private displayService: any;
+  public shopForm: FormGroup;
+  url: string;
+  counterValue = 0;
+  @Output() counterChange = new EventEmitter();
+  show = true;
+  visibility = true;
+  disabled = true;
+
+  constructor(private fb: FormBuilder, private http: HttpClient) {
+    this.url = 'http://localhost:3000/data';
+    this.shopForm = fb.group({
+      counterValue: ['', [Validators.required]],
+      phone: ['', [Validators.required]],
+      name: ['', [Validators.required]],
+      date: ['', [Validators.required]],
+      notes: ['', [Validators.required]]
+    });
+  }
   @Input()
   get counter() {
     return this.counterValue;
   }
-
   set counter(val) {
     this.counterValue = val;
     this.counterChange.emit(this.counterValue);
   }
-  counterValue = 0;
-  @Output() counterChange = new EventEmitter();
-  show: any;
-  decrement() {
-    this.counter--;
-  }
 
-  increment() {
-    this.counter++;
-  }
-  toggle1() {
-    this.show = !this.show;
-  }
-
-  showModal(): void {
-    $('#myModal').modal('show');
-  }
-  sendModal(): void {
-    this.hideModal();
-  }
-  hideModal(): void {
-    $('#myModal').modal('hide'); }
+  // decrement() {
+  //   this.counter--;
+  // }
+  //
+  // increment() {
+  //   this.counter++;
+  // }
+send() {
+    this.postData().subscribe();
 }
 
+  postData(): Observable<any> {
+    console.log(this.shopForm.value);
+    return this.http.post(this.url, this.shopForm.value, {responseType: 'text'});
+  }
+  showModal() {
+    this.visibility = !this.visibility;
+  }
+
+  onSubmit(shopForm) {
+    if (this.shopForm.value) {
+      this.showModal();
+    }
+  }
+
+  sendModal(): void {
+    this.postData();
+    this.hideModal();
+  }
+
+  hideModal(): void {
+    $('#myModal').modal('hide');
+  }
+
+  closeModal() {
+    this.visibility = !this.visibility;
+  }
+}

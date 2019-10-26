@@ -1,32 +1,35 @@
+<div class="my-container">
+
 <div class="main">
 <h3>Паштелки вже у Львові</h3>
 <img src="assets/img/paste_.jpg" alt="" class="logo">
 <h2>Оформити замовлення</h2>
 <p>Набір Standart -  6шт (130hrn)</p>
-<form>
+<form [formGroup]="shopForm" (ngSubmit)="onSubmit(shopForm)">
   <div class="form-group">
     <label>Вкажіть кількість наборів:</label><br>
-    <button (click)="decrement()" class="countButtons" style="color: orangered"><i class="fas fa-minus"></i></button>
-    <span>{{counter}}</span>
-    <button (click)="increment()" class="countButtons" style="color: dodgerblue"><i class="fas fa-plus"></i></button>
+<!--    <button type="button" (click)="decrement()" class="countButtons" style="color: orangered"><i class="fas fa-minus"></i></button>-->
+    <input formControlName="counterValue"  value='{{counter}}'>
+<!--    <button type="button" (click)="increment()" class="countButtons" style="color: dodgerblue"><i class="fas fa-plus"></i></button>-->
   </div>
   <div class="form-group">
     <label>Вкажіть ваш телефон:</label><br>
-    <input type="text"  class="form-control" placeholder="380960004509"><br>
+    <input type="text" formControlName="phone" class="form-control" placeholder="380960004509"><br>
   </div>
   <div class="form-group">
     <label>Вкажіть вашe імя:</label><br>
-    <input type="text" class="form-control" placeholder="Maria" ><br>
+    <input type="text" formControlName="name" class="form-control" placeholder="Maria" ><br>
   </div>
   <div class="form-group">
     <label>Вкажіть бажану дату доставки:</label><br>
-    <input type="text" class="form-control" placeholder="05-03-2019"><br>
+    <input type="text" formControlName="date" class="form-control" placeholder="05-03-2019"><br>
   </div>
   <div class="form-group">
     <label>Коментар до замовлення</label><br>
-    <textarea placeholder="вкажіть будьласка адресу доставки" class="form-control"></textarea><br></div>
+    <textarea placeholder="вкажіть будьласка адресу доставки" formControlName="notes" class="form-control"></textarea><br></div>
   <div class="form-group">
-    <button type="button" (click)="toggle1(); showModal()" [disabled]="counterValue < 1"  data-toggle="modal" data-target="#myModal" class="btn btn-success">ЗАМОВИТИ</button>
+    <button type="submit"  id="submitButton"  data-toggle="modal" class="btn btn-success" >
+      ЗАМОВИТИ</button>
   </div>
 </form>
 <h5>Режим роботи та обробка замовлення: пн-пт з 09:00 до 21.00</h5>
@@ -34,30 +37,9 @@
 </div>
 
 
-<div class="modal fade" id="myModal">
-  <div class="modal-dialog">
-    <div class="modal-content">
-
-      <!-- Modal Header -->
-      <div class="modal-header">
-        <h4 class="modal-title">Замовлення:</h4>
-        <button type="button" class="close" (click)="hideModal()">&times;</button>
-      </div>
-
-      <!-- Modal body -->
-      <div class="modal-body">
-        Ви замовили {{counterValue}} наборів
-      </div>
-
-      <!-- Modal footer -->
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary" (click)="sendModal()" >Send</button>
-        <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="hideModal()">Close</button>
-
-        <!-- this button is hidden, used to close from typescript -->
-        <button type="button" id="close-modal"   style="display: none">Close</button>
-      </div>
-    </div>
-  </div>
+<div class="confirmModal" [ngClass]="{invisible: visibility}">
+  <h3>Ви купили: {{counter}}комплектів</h3>
+  <button class="modalBtn" style="background-color: darkgreen" (click)="closeModal(); send()">Yes</button>
+  <button class="modalBtn" style="background-color: firebrick" (click)="closeModal()">No</button>
 </div>
-
+</div>

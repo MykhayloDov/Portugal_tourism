@@ -9,6 +9,8 @@ import {RouterModule} from '@angular/router';
 import { NavigationComponent } from './navigation/navigation.component';
 import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
+import {HttpClient} from '@angular/common/http';
+
 /////
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -76,6 +78,7 @@ import {WhenToStayComponent} from './when-to-stay/when-to-stay.component';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

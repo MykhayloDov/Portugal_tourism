@@ -4,14 +4,13 @@
   <div class="usersList">
     <div class='box' *ngFor="let item of arr; let i = index">
       <span>{{i+1}}) </span>
-      <span>{{item.name}}</span>
+      <span>{{item}}</span>
       <br>
-      <span>{{item.email}}</span>
+      <span>{{item}}</span>
       <br>
-      <span>{{item.phone}}</span>
+      <span>{{item}}</span>
     </div>
   </div>
-
 <button (click)="OnDestroy()">
   Logout
 </button>
